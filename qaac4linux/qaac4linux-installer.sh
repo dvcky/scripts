@@ -64,7 +64,7 @@ then
     echo
     echo "Done! A folder called 'qaac_$QAAC_VER' has been created with all the files needed for the QAAC encoder!"
     echo
-    echo "You can use 'qaac4linux-convert FILE' for single files, and 'qaac4linux-batch FOLDER' for folders."
+    echo "You can use './qaac4linux-convert.sh FILE' for single files, and './qaac4linux-batch.sh FOLDER' for folders."
     echo
     echo
     echo

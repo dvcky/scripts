@@ -55,8 +55,16 @@ then
     echo "(6/6) Cleaning up some more..."
     mv QTfiles64.7z tmp_downloads/
 
+    echo "(7/7) Downloading custom scripts..."
+    curl -Lo qaac4linux-convert https://raw.githubusercontent.com/dvcky/scripts/main/qaac4linux/qaac4linux-convert.sh --progress-bar
+    chmod +x qaac4linux-convert
+    curl -Lo qaac4linux-batch https://raw.githubusercontent.com/dvcky/scripts/main/qaac4linux/qaac4linux-batch.sh --progress-bar
+    chmod +x qaac4linux-batch
+
     echo
     echo "Done! A folder called 'qaac_$QAAC_VER' has been created with all the files needed for the QAAC encoder!"
+    echo
+    echo "You can use 'qaac4linux-convert FILE' for single files, and 'qaac4linux-batch FOLDER' for folders."
     echo
     echo
     echo

@@ -1,5 +1,17 @@
 #!/bin/sh
+
+# qaac4linux settings:
+# ----
+
+COVER_HEIGHT=300 # the height in pixels for the song's cover art (width will maintain aspect aspect ratio)
+QAAC_QUALITY=109 # https://wiki.hydrogenaud.io/index.php?title=Apple_AAC#Bitrate_modes
+
+# ----
+
 if [[ $# -eq 1 ]]; then
+
+    COVERSIZE_ARG="x$COVER_HEIGHT>"
+
     echo "--------"
     echo "FILE: $1"
     echo "--------"
@@ -108,7 +120,7 @@ if [[ $# -eq 1 ]]; then
             if [[ -n "$INCOVER" ]]
             # if we do find an INCOVER, convert it and copy to the OUTFOLDER
             then
-                convert "$INCOVER" -resize '600x600>' "$OUTFOLDER/$COVERFILE"
+                convert "$INCOVER" -resize $COVERSIZE_ARG "$OUTFOLDER/$COVERFILE"
             else
             # otherwise, try ripping the cover from the files metadata
                 exiftool -b -Picture "$1" > "$OUTFOLDER/$COVERFILE"
@@ -122,7 +134,7 @@ if [[ $# -eq 1 ]]; then
                     rm "$OUTFOLDER/$COVERFILE"
                 else
                 # otherwise, convert this and move it to OUTFOLDER
-                    convert "$OUTFOLDER/$COVERFILE" -resize '600x600>' "$OUTFOLDER/$COVERFILE"
+                    convert "$OUTFOLDER/$COVERFILE" -resize $COVERSIZE_ARG "$OUTFOLDER/$COVERFILE"
                 fi
 
             fi
@@ -136,7 +148,7 @@ if [[ $# -eq 1 ]]; then
         ffmpeg -nostdin -hide_banner -loglevel error -i "$1" -f wav -ar 44100 "$OUTFILE_WAV" -y
 
         echo "(3/3) Encoding temporary file with qaac..."
-        WINEDEBUG=-all wine qaac64.exe --tvbr 109 --quality 2 --title "$TITLE" --artist "$ARTIST" --band "$ALBUMARTIST" --album "$ALBUM" --genre "$GENRE" --date "$YEAR" --track "$TRACKNUMBER" --disk "$DISCNUMBER" "$OUTFILE_WAV"
+        WINEDEBUG=-all wine qaac64.exe --tvbr $QAAC_QUALITY --title "$TITLE" --artist "$ARTIST" --band "$ALBUMARTIST" --album "$ALBUM" --genre "$GENRE" --date "$YEAR" --track "$TRACKNUMBER" --disk "$DISCNUMBER" "$OUTFILE_WAV"
         mv "$OUTFILE" "$OUTFILE_PATH"
         rm "$OUTFILE_WAV"
 

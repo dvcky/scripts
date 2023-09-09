@@ -2,11 +2,13 @@
 
 FIND_FILTER=""
 
-# USER CUSTOMIZED OPTIONS
-# SUPPORTED_FILES - file extensions you want this program to look for
-# PROCESSES - number of transcode processes that can run simultaniously (I recommend 75-80% of your cores as a good starting point for high-load without constantly pinning your CPU to 100%)
-SUPPORTED_FILES="flac m4a mp3"
-PROCESSES=12
+# qaac4linux settings:
+# ----
+
+SUPPORTED_FILES="flac m4a mp3" # list of file types you want to be transcoded
+PROCESSES=12 # number of transcoding processes to run asynchronously
+
+# ----
 
 for FILETYPE in $SUPPORTED_FILES; do
     if [[ ! -z "$FIND_FILTER" ]]

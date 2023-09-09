@@ -76,9 +76,9 @@ if [[ $# -eq 1 ]]; then
         OUTFILE=$ARTIST_FILESAFE" - "$TITLE_FILESAFE".m4a"
     fi
 
-    OUTFOLDER="encode/$ALBUMARTIST_FILESAFE/$ALBUMARTIST_FILESAFE - $ALBUM_FILESAFE CD$(printf "%02d" "$((10#$DISCNUMBER))")"
+    OUTFOLDER="encode/$ALBUMARTIST_FILESAFE - $ALBUM_FILESAFE CD$(printf "%02d" "$((10#$DISCNUMBER))")"
     if [[ "$ALBUM_FILESAFE" == "Unknown" ]]; then
-        OUTFOLDER="encode/$ALBUMARTIST_FILESAFE/$ALBUMARTIST_FILESAFE - Singles"
+        OUTFOLDER="encode/$ALBUMARTIST_FILESAFE - Singles"
         if [[ "$ARTIST_FILESAFE" == "Unknown" ]]; then
             OUTFOLDER="encode/!!! UNKNOWN"
         fi

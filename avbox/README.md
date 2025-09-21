@@ -19,11 +19,11 @@ I like switching environments a lot, and having a script that automates this pro
 2. Install [BoxBuddy](https://github.com/Dvlv/BoxBuddyRS) using your preferred method.
 3. Create a new Distrobox
 
-![](https://raw.githubusercontent.com/dvcky/scripts/refs/heads/master/avbox/step1.png)
+![](https://raw.githubusercontent.com/dvcky/scripts/refs/heads/main/avbox/step1.png)
 
 4. Fill in the settings to something similar to below (the name of the system and the home folder does not have to be avbox, it can be anything - I would just recommend that you use a seperate home folder from your host system to keep things more organized)
 
-![](https://raw.githubusercontent.com/dvcky/scripts/refs/heads/master/avbox/step2.png)
+![](https://raw.githubusercontent.com/dvcky/scripts/refs/heads/main/avbox/step2.png)
 
 3. Run `chmod +x ./avbox.sh && ./avbox.sh`
 4. Grab a cup of coffee, watch as text scrolls, and follow the prompts as necessary. You can grab the files the script will ask for ahead of time in [Files Required](#files-required) if you would like, and that will save you some of time as well.

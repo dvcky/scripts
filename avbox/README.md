@@ -16,18 +16,12 @@ I like switching environments a lot, and having a script that automates this pro
 
 ### Installation
 1. Right click [this link](https://github.com/dvcky/scripts/raw/main/avbox/avbox.sh), then save it to a file _(You can call it whatever you want, but for reference to this guide we will be calling it `avbox.sh`)_
-2. Install [BoxBuddy](https://github.com/Dvlv/BoxBuddyRS) using your preferred method.
-3. Create a new Distrobox
-
-![](https://raw.githubusercontent.com/dvcky/scripts/refs/heads/main/avbox/step1.png)
-
-4. Fill in the settings to something similar to below (the name of the system and the home folder does not have to be avbox, it can be anything - I would just recommend that you use a seperate home folder from your host system to keep things more organized)
-
-![](https://raw.githubusercontent.com/dvcky/scripts/refs/heads/main/avbox/step2.png)
-
-3. Run `chmod +x ./avbox.sh && ./avbox.sh`
-4. Grab a cup of coffee, watch as text scrolls, and follow the prompts as necessary. You can grab the files the script will ask for ahead of time in [Files Required](#files-required) if you would like, and that will save you some of time as well.
-5. Success! The applications should be available from your host system's application list, and anything that needs configuring can be done from the container's home folder since all of the applications are installed there.
+2. Install [distrobox](https://github.com/89luca89/distrobox) using your package manager.
+3. Create a distrobox container and enter it: `distrobox create --image fedora:41 --home ~/Documents/Distrobox/avbox --name avbox && distrobox enter avbox`
+4. Move `avbox.sh` to avbox's home folder.
+5. Run `chmod +x ./avbox.sh && ./avbox.sh`
+6. Grab a cup of coffee, watch as text scrolls, and follow the prompts as necessary. You can grab the files the script will ask for ahead of time in [Files Required](#files-required) if you would like, and that will save you some of time as well.
+7. Success! The applications should be available from your host system's application list, and anything that needs configuring can be done from the container's home folder since all of the applications are installed there.
 
 ### Files Required
 

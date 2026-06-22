@@ -81,37 +81,37 @@ mv "$HOME/resolve/libs/libgmodule"* "$HOME/resolve/libs/disabled"
 
 distrobox-export --app "$HOME/.local/share/applications/com.blackmagicdesign.resolve.desktop"
 
-echo "----------------"
-echo "INSTALL REAPER"
-echo "----------------"
+# echo "----------------"
+# echo "INSTALL REAPER"
+# echo "----------------"
 
-read -p "Drag your copy of 'reaper725_linux_x86_64.tar.xz' here, then press enter: " REAPER_ARCHIVE
-tar -xf "${REAPER_ARCHIVE% }" -C "$HOME" --strip-components=2
+# read -p "Drag your copy of 'reaper725_linux_x86_64.tar.xz' here, then press enter: " REAPER_ARCHIVE
+# tar -xf "${REAPER_ARCHIVE% }" -C "$HOME" --strip-components=2
 
 # Manual installation of reaper does not include the .desktop file and icon - adding below for a proper experience
 
-xdg-icon-resource install --size 256 "$HOME/REAPER/Resources/main.png" cockos-reaper
-reaper_desktop_file > "$HOME/.local/share/applications/fm.reaper.desktop"
+# xdg-icon-resource install --size 256 "$HOME/REAPER/Resources/main.png" cockos-reaper
+# reaper_desktop_file > "$HOME/.local/share/applications/fm.reaper.desktop"
 
 # Now that it is properly installed, link application to host system
 
-distrobox-export --app "$HOME/.local/share/applications/fm.reaper.desktop"
+# distrobox-export --app "$HOME/.local/share/applications/fm.reaper.desktop"
 
-echo "----------------"
-echo "INSTALL YABRIDGE"
-echo "----------------"
-echo
-mkdir -p "$HOME/.local/share"
-read -p "Drag your copy of 'yabridge-X.X.X.tar.gz' here, then press enter: " YABRIDGE_ARCHIVE
-tar -xf "$YABRIDGE_ARCHIVE" -C "$HOME/.local/share"
+# echo "----------------"
+# echo "INSTALL YABRIDGE"
+# echo "----------------"
+# echo
+# mkdir -p "$HOME/.local/share"
+# read -p "Drag your copy of 'yabridge-X.X.X.tar.gz' here, then press enter: " YABRIDGE_ARCHIVE
+# tar -xf "$YABRIDGE_ARCHIVE" -C "$HOME/.local/share"
 
 # Then add yabridgectl binary to local user path so that it is easily accessible
 
-chmod +x "$HOME/.local/share/yabridge/yabridgectl"
-mkdir -p "$HOME/.local/bin"
-ln -sf "$HOME/.local/share/yabridge/yabridgectl" "$HOME/.local/bin"
+# chmod +x "$HOME/.local/share/yabridge/yabridgectl"
+# mkdir -p "$HOME/.local/bin"
+# ln -sf "$HOME/.local/share/yabridge/yabridgectl" "$HOME/.local/bin"
 
 # Now that everything is done, say something nice to the user :)
 
-echo
+# echo
 echo "COMPLETED! Thanks for using Ducky's avbox script! :)"
